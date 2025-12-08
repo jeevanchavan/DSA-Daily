@@ -1,15 +1,26 @@
-// reverse()
+// Time Complexity ⏱️
 
-// Time: ✅ O(n)
+// O(n) ✅
 
-// Space: ✅ O(1)
+// Why?
 
-// 👉 Loop runs once through the list.
-// 👉 Uses only 3 pointers (prev, curr, next).
-// 👉 No extra memory.
+// First while loop → counts size → runs n times
 
+// for loop → goes till (size - n) → again n times
 
-class LinkedList {
+// So total work is linear → O(n)
+
+// Space Complexity 💾
+
+// O(1) ✅
+
+// Why?
+
+// Uses only a few variables: temp, prev, sz
+
+// No extra data structures
+
+class DeleteNthFromEnd {
 
     public static class Node{
         int data;
@@ -130,35 +141,52 @@ class LinkedList {
     }
 
 
-    // reverse LL
-    public void reverse(){
-        Node prev = null;
-        Node curr = tail = head;
-        Node next;
-
-        while(curr != null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+    // Delete Nth Node from end
+    public void deleteNthFromEnd(int n){
+        if(head == null){
+            return;
         }
-        head = prev;
+
+        // calculate size
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+
+        if(n == sz){
+            head = head.next;
+            return;
+        }
+
+        // invalid n
+        if(n > sz){
+            return;
+        }
+
+        Node prev = head;
+        for(int i=1; i<sz-n; i++){
+            prev = prev.next;
+        }
+
+        prev.next = prev.next.next;
     }
 
 
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        DeleteNthFromEnd ll = new DeleteNthFromEnd();
 
-        ll.addFirst(2);
         ll.addFirst(1);
+        ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
+        ll.addLast(5);
 
         ll.print();
 
-        ll.reverse();
-        System.out.println("After reversing:");
+        ll.deleteNthFromEnd(3);
+        System.out.println("After Deleting:");
         ll.print();
-        System.out.println("Size is: "+size);
     }
 }
