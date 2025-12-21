@@ -1,8 +1,6 @@
-// add operation using -> O(n) and remove -> O(1)
-
 import java.util.Stack;
 
-public class QueueUsingStack {
+public class QueueUsingStack2 {
     static class Queue{
         Stack<Integer> s1 = new Stack<>();
         Stack<Integer> s2 = new Stack<>();
@@ -60,4 +58,5 @@ public class QueueUsingStack {
         }
     }
 }
+
 
