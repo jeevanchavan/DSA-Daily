@@ -1,3 +1,11 @@
+// Greedy Pattern:
+// - Sort both arrays
+// - Pair smallest with smallest
+// - This gives minimum total absolute difference
+
+// Key Idea: Make locally optimal choice to get global optimum
+
+
 import java.util.*;
 
 public class MinSumAbsDiff {

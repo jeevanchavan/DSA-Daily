@@ -1,3 +1,10 @@
+// Greedy Pattern:
+// - Sort activities by end time
+// - Always pick the activity that finishes first
+// - Skip overlapping activities
+// Key Idea: Make locally optimal choice to get global optimum
+
+
 import java.util.ArrayList;
 
 public class ActivitySelection{

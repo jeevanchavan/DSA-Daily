@@ -1,3 +1,11 @@
+// Greedy Pattern:
+// - Sort intervals by end time
+// - Keep intervals with earliest end
+// - Count how many intervals must be removed
+
+// Key Idea: Make locally optimal choice to get global optimum
+
+
 import java.util.Arrays;
 
 public class NonOverlappingIntervals {
